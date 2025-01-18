@@ -76,13 +76,9 @@ const getProviders = () => [
 
 export const enhanceToken = async ({ token, user }: { token: JWT; user: User }): Promise<JWT> => {
 	try {
-		const { disabled } = await getTwoFactor();
-
 		if (user) {
 			token.twoFactorComplete = user.twoFactorComplete ?? false;
 		}
-
-		token.twoFactorDisabled = disabled;
 		return token;
 	} catch (error) {
 		console.error('Token enhancement error:', error);
