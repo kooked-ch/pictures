@@ -38,7 +38,7 @@ export async function getTwoFactorQR() {
 	);
 
 	const name = session?.user?.email;
-	const keyUri = authenticator.keyuri(name, 'Kooked Portal', secret);
+	const keyUri = authenticator.keyuri(name, 'Kooked Pictures', secret);
 	const QRUri = await qrcode.toDataURL(keyUri);
 
 	return {
