@@ -119,7 +119,7 @@ export default function LoginComponent() {
 
 						<div className="mt-4 text-center text-sm text-muted-foreground">
 							Don't have an account?{' '}
-							<Link href={`/auth/signup?callbackUrl=${searchParams.get('callbackUrl')}`} className="text-primary hover:underline">
+							<Link href={`/register?callbackUrl=${searchParams.get('callbackUrl')}`} className="text-primary hover:underline">
 								Sign up
 							</Link>
 						</div>
