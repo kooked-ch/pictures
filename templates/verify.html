@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictures - Email Verification</title>
+    <style>
+        :root {
+            --background: rgb(9, 9, 11);
+            --card-background: rgb(24, 24, 27);
+            --foreground: rgb(250, 250, 250);
+            --muted: rgb(161, 161, 170);
+            --border: rgb(39, 39, 45);
+            --code-background: rgb(39, 39, 45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--foreground);
+            margin: 0;
+            line-height: 1.5;
+            background-color: var(--background);
+        }
+
+        .container {
+            border-radius: 0.75rem;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .app-name {
+            font-size: 2.25rem;
+            font-weight: 900;
+
+        }
+
+        p {
+            color: var(--muted);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .verification-code {
+            background-color: var(--code-background);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            font-size: 1.5rem;
+            letter-spacing: 0.25rem;
+        }
+
+        .expiry {
+            font-size: 0.875rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+        }
+
+        .footer p {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z">
+                </path>
+                <circle cx="12" cy="13" r="3"></circle>
+            </svg>
+            <div class="app-name">Pictures</div>
+        </div>
+
+        <h1>Verify your email address</h1>
+
+        <p>Thank you for signing up for <strong>Kooked Pictures</strong>. To complete your registration and ensure the
+            security
+            of your account, please use the verification code below:</p>
+
+        <div class="verification-code">{verification_code}</div>
+
+        <p class="expiry">This verification code will expire in 24 hours.</p>
+
+        <div class="footer">
+            <p>This is an automated email. Please do not reply to this address.</p>
+            <p>If you did not create an account, you can safely ignore this email.</p>
+        </div>
+    </div>
+</body>
+
+</html>
