@@ -68,7 +68,7 @@ const getProviders = () => [
 				};
 			} catch (error) {
 				console.error('Auth error:', error);
-				throw error;
+				throw new Error('An error occurred');
 			}
 		},
 	}),
