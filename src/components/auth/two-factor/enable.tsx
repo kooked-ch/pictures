@@ -1,12 +1,12 @@
 'use client';
 import { SetStateAction, useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter, CardDescription } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
-import { Loader2, KeyRound, ArrowRight, Lock, Camera } from 'lucide-react';
+import { Loader2, KeyRound, ArrowRight, Camera } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -44,23 +44,6 @@ export default function TwoFactorEnable({ secret, QRUri }: { secret: string; QRU
 		}
 	}
 
-	async function skipTwoFactor() {
-		try {
-			setIsLoading(true);
-			const response = await fetch(`/api/auth/factor/skip`, { method: 'POST' });
-			if (response.ok) {
-				router.push(redirectPath);
-				return;
-			}
-			const body = await response.json();
-			setError(body.error || 'An unexpected error occurred. Please try again later.');
-		} catch (e) {
-			setError('An unexpected error occurred. Please try again later.');
-		} finally {
-			setIsLoading(false);
-		}
-	}
-
 	return (
 		<div className="h-svh flex items-center justify-center p-4">
 			<div className="w-full max-w-md space-y-8">
@@ -68,12 +51,11 @@ export default function TwoFactorEnable({ secret, QRUri }: { secret: string; QRU
 					<Camera className="size-9" />
 					<h1 className="text-4xl font-black">Pictures</h1>
 				</Link>
-				<Card className="w-full max-w-md md:border border-0">
-					<CardHeader className="text-center space-y-4">
-						<div className="space-y-2">
-							<CardTitle>Two-Factor Authentication</CardTitle>
-							{QRCodePage ? <p className="text-sm text-muted-foreground">Enhance your account security by setting up 2FA using an authenticator app</p> : <p className="text-sm text-muted-foreground">Enter the 6-digit code from your authenticator app</p>}
-						</div>
+
+				<Card className="shadow-lg border-accent md:border border-0">
+					<CardHeader className="space-y-1">
+						<CardTitle className="text-2xl font-bold tracking-tight">Two-Factor Authentication</CardTitle>
+						<CardDescription>{QRCodePage ? 'Enhance your account security by setting up 2FA using an authenticator app' : 'Enter the 6-digit code from your authenticator app'}</CardDescription>
 					</CardHeader>
 
 					<CardContent className="space-y-2">

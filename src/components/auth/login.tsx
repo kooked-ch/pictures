@@ -50,7 +50,7 @@ export default function LoginComponent() {
 					<h1 className="text-4xl font-black">Pictures</h1>
 				</Link>
 
-				<Card className="shadow-lg border-accent">
+				<Card className="shadow-lg border-accent md:border border-0">
 					<CardHeader className="space-y-1">
 						<CardTitle className="text-2xl font-bold tracking-tight">Welcome back</CardTitle>
 						<CardDescription>Sign in to your account to continue</CardDescription>
