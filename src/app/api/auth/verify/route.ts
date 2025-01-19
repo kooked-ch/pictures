@@ -1,9 +1,9 @@
 import db from '@/lib/mongo';
 import { UserModel } from '@/models/User';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { EmailModel } from '@/models/Email';
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest) {
 	try {
 		const { code, email } = await req.json();
 		await db.connect();
