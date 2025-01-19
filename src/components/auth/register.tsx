@@ -198,9 +198,9 @@ export default function RegisterComponent() {
 					<div className="text-center text-sm">
 						<p className="text-muted-foreground">
 							Already have an account?{' '}
-							<a href="/login" className="text-primary hover:underline">
+							<Link href={`/login?callbackUrl=${searchParams.get('callbackUrl') || '/'}`} className="text-primary hover:underline">
 								Sign in
-							</a>
+							</Link>
 						</p>
 					</div>
 				</CardContent>
