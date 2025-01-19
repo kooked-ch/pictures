@@ -4,11 +4,11 @@ import { AccreditationModel } from '@/models/Accreditation';
 import { UserModel } from '@/models/User';
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
-import bcryt from 'bcrypt';
+import bcrypt from 'bcrypt';
 import { EmailModel } from '@/models/Email';
 import { generateRandomString } from '@/lib/utils';
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
 	try {
 		const { email, password, name } = await req.json();
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 		const defaultAccreditation = await AccreditationModel.findOne({ slug: 'den', accessLevel: 0 }).exec();
 		if (!defaultAccreditation) return NextResponse.json({ error: 'Error during registration' }, { status: 500 });
 
-		const passwordHash = bcryt.hashSync(password, 10);
+		const passwordHash = bcrypt.hashSync(password, 10);
 
 		await UserModel.create({
 			email,
@@ -46,6 +46,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 		return NextResponse.json({ message: 'User created' });
 	} catch (error) {
 		console.error('Error during registration:', error);
-		return NextResponse.json({ error: 'Error during registration' });
+		return NextResponse.json({ error: 'Error during registration' }, { status: 500 });
 	}
 }
