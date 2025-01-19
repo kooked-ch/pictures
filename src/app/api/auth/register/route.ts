@@ -2,13 +2,13 @@ import { sendEmail } from '@/lib/mail';
 import db from '@/lib/mongo';
 import { AccreditationModel } from '@/models/Accreditation';
 import { UserModel } from '@/models/User';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
 import bcryt from 'bcrypt';
 import { EmailModel } from '@/models/Email';
 import { generateRandomString } from '@/lib/utils';
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest, res: NextResponse) {
 	try {
 		const { email, password, name } = await req.json();
 
