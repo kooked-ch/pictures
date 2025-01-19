@@ -95,7 +95,7 @@ export const handleSignIn = async ({ user, account, profile }: { user: User; acc
 
 		const provider = account?.provider ?? 'credentials';
 
-		const defaultAccreditation = await AccreditationModel.findOne<IAccreditation>({ slug: 'std', accessLevel: 0 }).exec();
+		const defaultAccreditation = await AccreditationModel.findOne<IAccreditation>({ slug: 'den', accessLevel: 0 }).exec();
 
 		if (!defaultAccreditation) return false;
 
