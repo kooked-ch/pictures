@@ -139,7 +139,7 @@ export default function RegisterComponent() {
 							<Label htmlFor="email">Email</Label>
 							<div className="relative">
 								<Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-								<Input type="text" placeholder="John Doe" className="pl-10" {...form.register('email')} />
+								<Input type="text" placeholder="john.doe@example.com" className="pl-10" {...form.register('email')} />
 							</div>
 							{form.formState.errors.email && <p className="text-destructive text-sm">{form.formState.errors.email.message}</p>}
 						</div>
