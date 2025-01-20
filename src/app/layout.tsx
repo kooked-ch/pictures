@@ -7,10 +7,10 @@ import React from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Kooked Portal',
-	description: 'Manage and deploy your apps',
-	keywords: ['portal', 'app management', 'deploy apps'],
-	applicationName: 'Kooked Portal',
+	title: 'Pictures',
+	description: 'A simple photo gallery application.',
+	keywords: ['pictures', 'images', 'photos', 'gallery', 'albums', 'memories'],
+	applicationName: 'Kooked Pictures',
 };
 
 type RootLayoutProps = any;
